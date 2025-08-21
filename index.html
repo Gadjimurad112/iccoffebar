@@ -1,59 +1,112 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iCoffeeBar</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f8f8f8;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #6f4e37;
-            color: white;
-            padding: 20px;
-        }
-        img {
-            margin-top: 20px;
-            width: 300px;
-            border-radius: 10px;
-        }
-        .buttons {
-            margin: 30px;
-        }
-        a {
-            display: inline-block;
-            text-decoration: none;
-            margin: 10px;
-            padding: 15px 25px;
-            font-size: 18px;
-            border-radius: 8px;
-            color: white;
-        }
-        .whatsapp {
-            background-color: #25D366;
-        }
-        .instagram {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Меню iCoffee Bar</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f8f8f8; margin: 0; padding: 0; }
+    header { background: #3e2723; color: white; padding: 15px; text-align: center; }
+    h2 { background: #d7ccc8; margin: 0; padding: 10px; }
+    .menu { padding: 15px; }
+    .item { background: white; margin: 8px 0; padding: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+    button { background: #3e2723; color: white; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #5d4037; }
+    #cart { position: fixed; bottom: 0; left: 0; right: 0; background: #fff3e0; padding: 15px; border-top: 2px solid #3e2723; }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Добро пожаловать в iCoffeeBar ☕</h1>
-        <p>Ваш уютный кофе с собой</p>
-    </header>
 
-    <!-- Фото кофейни -->
-    <img src="IMG_3390.jpeg" alt="Наша кофейня">
+<header>
+  <h1>Меню iCoffee Bar</h1>
+</header>
 
-    <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/79886350007" target="_blank">📲 Заказать в WhatsApp</a>
-        <a class="instagram" href="https://www.instagram.com/icoffee.bar" target="_blank">📷 Мы в Instagram</a>
-    </div>
+<div class="menu">
+  <h2>☕ Классика</h2>
+  <div class="item">Эспрессо — 150₽ <button onclick="addToCart('Эспрессо',150)">Добавить</button></div>
+  <div class="item">Американо — 150₽ <button onclick="addToCart('Американо',150)">Добавить</button></div>
+  <div class="item">Айс кофе — 250₽ <button onclick="addToCart('Айс кофе',250)">Добавить</button></div>
+  <div class="item">Айс латте — 200₽ <button onclick="addToCart('Айс латте',200)">Добавить</button></div>
+  <div class="item">Бамбл — 250₽ <button onclick="addToCart('Бамбл',250)">Добавить</button></div>
+  <div class="item">Будильник — 200₽ <button onclick="addToCart('Будильник',200)">Добавить</button></div>
+  <div class="item">Капучино — 180₽ <button onclick="addToCart('Капучино',180)">Добавить</button></div>
+  <div class="item">Флэт-Уайт — 180₽ <button onclick="addToCart('Флэт-Уайт',180)">Добавить</button></div>
+  <div class="item">Латте — 200₽ <button onclick="addToCart('Латте',200)">Добавить</button></div>
+  <div class="item">Раф классик — 220₽ <button onclick="addToCart('Раф классик',220)">Добавить</button></div>
+  <div class="item">Раф урбеч — 250₽ <button onclick="addToCart('Раф урбеч',250)">Добавить</button></div>
+  <div class="item">Раф сироп — 240₽ <button onclick="addToCart('Раф сироп',240)">Добавить</button></div>
+
+  <h2>🍵 Чай</h2>
+  <div class="item">Глинтвейн — 240₽ <button onclick="addToCart('Глинтвейн',240)">Добавить</button></div>
+  <div class="item">Цитрусовый — 240₽ <button onclick="addToCart('Цитрусовый чай',240)">Добавить</button></div>
+  <div class="item">Травяной — 200₽ <button onclick="addToCart('Травяной чай',200)">Добавить</button></div>
+  <div class="item">Пуэр — 250₽ <button onclick="addToCart('Пуэр',250)">Добавить</button></div>
+  <div class="item">Облепиховый — 240₽ <button onclick="addToCart('Облепиховый чай',240)">Добавить</button></div>
+  <div class="item">Черный — 200₽ <button onclick="addToCart('Черный чай',200)">Добавить</button></div>
+
+  <h2>🥤 Коктейли</h2>
+  <div class="item">Молочный — 240₽ <button onclick="addToCart('Молочный коктейль',240)">Добавить</button></div>
+  <div class="item">Банановый — 280₽ <button onclick="addToCart('Банановый коктейль',280)">Добавить</button></div>
+  <div class="item">Шоколадный — 280₽ <button onclick="addToCart('Шоколадный коктейль',280)">Добавить</button></div>
+  <div class="item">Клубничный — 280₽ <button onclick="addToCart('Клубничный коктейль',280)">Добавить</button></div>
+  <div class="item">Oreo — 280₽ <button onclick="addToCart('Oreo коктейль',280)">Добавить</button></div>
+  <div class="item">Финиковый — 280₽ <button onclick="addToCart('Финиковый коктейль',280)">Добавить</button></div>
+  <div class="item">Смузи — 280₽ <button onclick="addToCart('Смузи',280)">Добавить</button></div>
+
+  <h2>🍹 Лимонады</h2>
+  <div class="item">Мохито — 200₽ <button onclick="addToCart('Мохито',200)">Добавить</button></div>
+  <div class="item">Мохито клубника — 200₽ <button onclick="addToCart('Мохито клубника',200)">Добавить</button></div>
+  <div class="item">Голубая лагуна — 200₽ <button onclick="addToCart('Голубая лагуна',200)">Добавить</button></div>
+  <div class="item">Экзотика — 250₽ <button onclick="addToCart('Экзотика',250)">Добавить</button></div>
+  <div class="item">Разбудильник — 250₽ <button onclick="addToCart('Разбудильник',250)">Добавить</button></div>
+  <div class="item">Шоты — 250₽ <button onclick="addToCart('Шоты',250)">Добавить</button></div>
+
+  <h2>🍊 Фреши</h2>
+  <div class="item">Апельсиновый — 280₽ <button onclick="addToCart('Апельсиновый фреш',280)">Добавить</button></div>
+  <div class="item">Гранатовый — 280₽ <button onclick="addToCart('Гранатовый фреш',280)">Добавить</button></div>
+  <div class="item">Микс — 280₽ <button onclick="addToCart('Фреш микс',280)">Добавить</button></div>
+</div>
+
+<div id="cart">
+  <h3>🛒 Корзина</h3>
+  <ul id="cart-items"></ul>
+  <p><b>Итого: <span id="total">0</span> ₽</b></p>
+  <button onclick="checkout()">Оформить заказ</button>
+</div>
+
+<script>
+  let cart = [];
+  
+  function addToCart(name, price) {
+    cart.push({name, price});
+    renderCart();
+  }
+  
+  function renderCart() {
+    let cartItems = document.getElementById("cart-items");
+    cartItems.innerHTML = "";
+    let total = 0;
+    cart.forEach((item, i) => {
+      total += item.price;
+      cartItems.innerHTML += `<li>${item.name} — ${item.price}₽ 
+        <button onclick="removeItem(${i})">❌</button></li>`;
+    });
+    document.getElementById("total").innerText = total;
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    renderCart();
+  }
+
+  function checkout() {
+    if (cart.length === 0) { alert("Корзина пуста!"); return; }
+    let order = cart.map(item => `${item.name} - ${item.price}₽`).join("%0A");
+    let total = document.getElementById("total").innerText;
+    let message = `Здравствуйте! Хочу заказать:%0A${order}%0AИтого: ${total}₽`;
+    window.open(`https://wa.me/79886350007?text=${message}`, "_blank");
+  }
+</script>
+
 </body>
 </html>
