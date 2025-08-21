@@ -2,56 +2,75 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IC Coffee Bar</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #fdfdfd;
+      margin: 0;
+      padding: 0;
+      background: #fdf6f0;
       color: #333;
       text-align: center;
     }
     header {
       background: #6f4e37;
       color: white;
-      padding: 20px 0;
+      padding: 20px;
     }
-    header h1 {
+    h1 {
       margin: 0;
-      font-size: 2.5em;
     }
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2em;
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px;
+      flex-wrap: wrap;
+    }
+    .gallery img {
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     section {
-      padding: 40px 20px;
+      margin: 40px 20px;
     }
     section img {
-      width: 300px;
-      border-radius: 10px;
-      margin-top: 20px;
+      margin-top: 10px;
     }
     footer {
-      background: #333;
+      background: #6f4e37;
       color: white;
-      padding: 15px;
-      font-size: 0.9em;
+      padding: 10px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>IC Coffee Bar</h1>
-    <p>Лучшее место для кофе и встреч</p>
+    <h1>Добро пожаловать в IC Coffee Bar ☕</h1>
+    <p>Лучший кофе и уютная атмосфера</p>
   </header>
 
-  <section>
-    <h2>Добро пожаловать!</h2>
-    <p>У нас вы найдете ароматный кофе, свежие десерты и уютную атмосферу.</p>
+  <div class="gallery">
     <img src="IMG_3390.jpeg" alt="Кофе">
     <img src="IMG_6651.jpeg" alt="Десерт">
+  </div>
+
+  <section id="contacts">
+    <h2>Контакты</h2>
+    <p>📍 Адрес: г. [Твой город], ул. [Название улицы], д. [номер]</p>
+    <p>📞 Телефон: +7 (988) 635-00-07</p>
+    <p>⏰ Время работы: 08:00 – 22:00</p>
+
+    <div style="margin-top:20px;">
+      <h3>Свяжитесь с нами:</h3>
+      <p>📲 WhatsApp</p>
+      <img src="whatsapp_qr.png" alt="QR WhatsApp" width="200">
+
+      <p>📸 Instagram</p>
+      <img src="instagram_qr.png" alt="QR Instagram" width="200">
+    </div>
   </section>
 
   <footer>
