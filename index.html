@@ -2,116 +2,235 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iCoffee Bar – Меню</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
+      background-color: #000;
+      color: white;
       font-family: Arial, sans-serif;
-      background: url("background.jpg") no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
       text-align: center;
-    }
-    .menu {
-      background: rgba(0, 0, 0, 0.6);
       padding: 20px;
-      border-radius: 10px;
-      display: inline-block;
-      margin-top: 50px;
-      max-width: 600px;
     }
-    h1 {
-      margin-bottom: 20px;
-      color: #ffcc66;
+    h1, h2 {
+      color: #e6c79d;
     }
-    .item {
+    .menu-item {
+      margin: 15px 0;
       display: flex;
       justify-content: space-between;
-      margin: 10px 0;
-      font-size: 18px;
+      align-items: center;
     }
     button {
-      background: #ffcc66;
+      background-color: #25D366;
+      color: white;
       border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
+      padding: 8px 16px;
       cursor: pointer;
-      font-weight: bold;
+      border-radius: 5px;
     }
     button:hover {
-      background: #ffb733;
+      background-color: #1fbc5b;
     }
     .cart {
       margin-top: 30px;
-      background: rgba(255, 255, 255, 0.2);
+      background-color: #1a1a1a;
       padding: 15px;
       border-radius: 10px;
+    }
+    .total {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+    .send-button {
+      background-color: #25D366;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="menu">
-    <h1>☕ iCoffee Bar – Меню</h1>
+  <h1>☕ iCoffee Bar</h1>
+  <p>Кофе и отдых</p>
 
-    <div class="item">
-      <span>Эспрессо – 150₽</span>
-      <button onclick="addToCart('Эспрессо', 150)">Добавить</button>
-    </div>
-    <div class="item">
-      <span>Капучино – 180₽</span>
-      <button onclick="addToCart('Капучино', 180)">Добавить</button>
-    </div>
-    <div class="item">
-      <span>Латте – 200₽</span>
-      <button onclick="addToCart('Латте', 200)">Добавить</button>
-    </div>
-    <div class="item">
-      <span>Раф классик – 220₽</span>
-      <button onclick="addToCart('Раф классик', 220)">Добавить</button>
-    </div>
+  <!-- КЛАССИКА -->
+  <h2>КЛАССИКА</h2>
+  <div class="menu-item">
+    <span>Эспрессо – 150₽</span>
+    <button onclick="addToOrder('Эспрессо – 150₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Американо – 150₽</span>
+    <button onclick="addToOrder('Американо – 150₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Айс кофе – 250/300₽</span>
+    <button onclick="addToOrder('Айс кофе – 250/300₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Айс латте – 200₽</span>
+    <button onclick="addToOrder('Айс латте – 200₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Бамбл – 250₽</span>
+    <button onclick="addToOrder('Бамбл – 250₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Будильник – 200₽</span>
+    <button onclick="addToOrder('Будильник – 200₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Капучино – 150/180₽</span>
+    <button onclick="addToOrder('Капучино – 150/180₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Флэт-Уайт – 180₽</span>
+    <button onclick="addToOrder('Флэт-Уайт – 180₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Латте – 200₽</span>
+    <button onclick="addToOrder('Латте – 200₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Раф классик – 220₽</span>
+    <button onclick="addToOrder('Раф классик – 220₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Раф урбеч – 250₽</span>
+    <button onclick="addToOrder('Раф урбеч – 250₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Раф сироп – 240₽</span>
+    <button onclick="addToOrder('Раф сироп – 240₽')">Добавить</button>
+  </div>
 
-    <div class="cart">
-      <h2>🛒 Корзина</h2>
-      <ul id="cartList"></ul>
-      <p><b>Итого: <span id="total">0</span>₽</b></p>
-      <button onclick="sendOrder()">Отправить заказ</button>
-    </div>
+  <!-- ЧАЙ -->
+  <h2>ЧАЙ</h2>
+  <div class="menu-item">
+    <span>Глинтвейн – 170/240₽</span>
+    <button onclick="addToOrder('Глинтвейн – 170/240₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Цитрусовый – 170/240₽</span>
+    <button onclick="addToOrder('Цитрусовый – 170/240₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Травяной – 200₽</span>
+    <button onclick="addToOrder('Травяной – 200₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Пуэр – 250₽</span>
+    <button onclick="addToOrder('Пуэр – 250₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Облепиховый – 170/240₽</span>
+    <button onclick="addToOrder('Облепиховый – 170/240₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Черный – 200₽</span>
+    <button onclick="addToOrder('Черный – 200₽')">Добавить</button>
+  </div>
+
+  <!-- КОКТЕЙЛИ -->
+  <h2>КОКТЕЙЛИ</h2>
+  <div class="menu-item">
+    <span>Молочный – 200/240₽</span>
+    <button onclick="addToOrder('Молочный – 200/240₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Банановый – 250/280₽</span>
+    <button onclick="addToOrder('Банановый – 250/280₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Шоколадный – 250/280₽</span>
+    <button onclick="addToOrder('Шоколадный – 250/280₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Клубничный – 250/280₽</span>
+    <button onclick="addToOrder('Клубничный – 250/280₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Oreo – 250/280₽</span>
+    <button onclick="addToOrder('Oreo – 250/280₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Финиковый – 250/280₽</span>
+    <button onclick="addToOrder('Финиковый – 250/280₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Смузи – 250/280₽</span>
+    <button onclick="addToOrder('Смузи – 250/280₽')">Добавить</button>
+  </div>
+
+  <!-- ЛИМОНАДЫ -->
+  <h2>ЛИМОНАДЫ</h2>
+  <div class="menu-item">
+    <span>Мохито – 200₽</span>
+    <button onclick="addToOrder('Мохито – 200₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Мохито клубника – 200₽</span>
+    <button onclick="addToOrder('Мохито клубника – 200₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Голубая лагуна – 200₽</span>
+    <button onclick="addToOrder('Голубая лагуна – 200₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Экзотика – 250₽</span>
+    <button onclick="addToOrder('Экзотика – 250₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Разбудильник – 250₽</span>
+    <button onclick="addToOrder('Разбудильник – 250₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Шоты – 250₽</span>
+    <button onclick="addToOrder('Шоты – 250₽')">Добавить</button>
+  </div>
+
+  <!-- ФРЕШИ -->
+  <h2>ФРЕШИ</h2>
+  <div class="menu-item">
+    <span>Апельсиновый – 250/280₽</span>
+    <button onclick="addToOrder('Апельсиновый – 250/280₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Гранатовый – 250/280₽</span>
+    <button onclick="addToOrder('Гранатовый – 250/280₽')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    <span>Микс – 250/280₽</span>
+    <button onclick="addToOrder('Микс – 250/280₽')">Добавить</button>
+  </div>
+
+  <!-- Корзина -->
+  <div class="cart">
+    <h2>Корзина</h2>
+    <p id="orderItems"></p>
+    <p class="total">Итого: <span id="total">0</span> ₽</p>
+    <a href="https://wa.me/79991234567?text=Здравствуйте!%20Мой%20заказ:%20" target="_blank" class="send-button" id="sendOrderButton">Отправить заказ</a>
   </div>
 
   <script>
-    let cart = [];
+    let orderItems = [];
     let total = 0;
 
-    function addToCart(item, price) {
-      cart.push({item, price});
-      total += price;
-      renderCart();
+    function addToOrder(item) {
+      orderItems.push(item);
+      total += parseInt(item.split('–')[1].trim().split('₽')[0]);
+      document.getElementById('orderItems').textContent = orderItems.join(', ');
+      document.getElementById('total').textContent = total;
+      updateSendButton();
     }
 
-    function renderCart() {
-      const cartList = document.getElementById("cartList");
-      cartList.innerHTML = "";
-      cart.forEach(order => {
-        const li = document.createElement("li");
-        li.textContent = order.item + " – " + order.price + "₽";
-        cartList.appendChild(li);
-      });
-      document.getElementById("total").textContent = total;
-    }
-
-    function sendOrder() {
-      let orderText = "Заказ:\n";
-      cart.forEach(order => {
-        orderText += order.item + " – " + order.price + "₽\n";
-      });
-      orderText += "Итого: " + total + "₽";
-
-      // WhatsApp
-      let phone = "79886350007"; // твой номер
-      let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(orderText);
-      window.open(url, "_blank");
+    function updateSendButton() {
+      const orderText = orderItems.length > 0 ? orderItems.join(', ') : "пустой";
+      const whatsappUrl = `https://wa.me/79991234567?text=Здравствуйте!%20Я%20хочу%20заказать:%20${encodeURIComponent(orderText)}%20|%20Итого:%20${total}₽`;
+      document.getElementById("sendOrderButton").href = whatsappUrl;
     }
   </script>
 </body>
