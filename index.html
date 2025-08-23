@@ -37,4 +37,89 @@
       background-color: #5d4037;
     }
     .cart {
-      margin: 3
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #fffaf0;
+      border-radius: 12px;
+      width: 85%;
+      max-width: 450px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .cart h3 {
+      margin-top: 0;
+      color: #6f4e37;
+    }
+    .total {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #3e2c1c;
+    }
+    .order-button {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-top: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: background 0.3s;
+    }
+    .order-button:hover {
+      background-color: #128C7E;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>☕ iCoffee Bar – Меню</h1>
+
+  <div class="menu-item">
+    Эспрессо – 150₽
+    <button onclick="addToCart(150, 'Эспрессо')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    Капучино – 180₽
+    <button onclick="addToCart(180, 'Капучино')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    Латте – 200₽
+    <button onclick="addToCart(200, 'Латте')">Добавить</button>
+  </div>
+  <div class="menu-item">
+    Раф классик – 220₽
+    <button onclick="addToCart(220, 'Раф классик')">Добавить</button>
+  </div>
+
+  <div class="cart">
+    <h3>Корзина</h3>
+    <p class="total">Итого: <span id="total">0</span> ₽</p>
+    <a href="#" id="whatsAppLink" class="order-button" target="_blank">💬 Отправить заказ в WhatsApp</a>
+  </div>
+
+  <script>
+    let total = 0;
+    const orderItems = [];
+
+    function addToCart(price, name) {
+      total += price;
+      orderItems.push(name);
+      document.getElementById('total').textContent = total;
+      updateWhatsAppLink();
+    }
+
+    function updateWhatsAppLink() {
+      const phone = '+79886350007'; // ✅ Ваш номер в формате WhatsApp
+      const message = `Здравствуйте!%20Я%20хочу%20заказать:%20${orderItems.join(',%20')}.%20Итого:%20${total}₽`;
+      const url = `https://wa.me/${phone}?text=${message}`;
+      document.getElementById('whatsAppLink').href = url;
+    }
+
+    updateWhatsAppLink();
+  </script>
+
+</body>
+</html>
