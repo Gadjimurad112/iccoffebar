@@ -13,14 +13,33 @@
       padding: 20px;
       margin: 0;
     }
+    .logo {
+      width: 150px;
+      height: auto;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
     h1 {
       color: #6f4e37;
       font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      color: #8b5a2b;
+      font-size: 1.2em;
       margin-bottom: 30px;
+    }
+    .menu-category {
+      font-size: 1.6em;
+      color: #5d4037;
+      margin: 30px 0 15px;
+      border-bottom: 2px dashed #ccc;
+      padding-bottom: 5px;
     }
     .menu-item {
       font-size: 1.4em;
-      margin: 25px 0;
+      margin: 20px 0;
     }
     .menu-item button {
       background-color: #6f4e37;
@@ -75,27 +94,36 @@
 </head>
 <body>
 
-  <h1>☕ iCoffee Bar – Меню</h1>
+  <!-- Логотип -->
+  <img src="https://via.placeholder.com/150x150.png?text=☕" alt="Логотип iCoffee Bar" class="logo" />
 
-  <div class="menu-item">
-    Эспрессо – 150₽
-    <button onclick="addToCart(150, 'Эспрессо')">Добавить</button>
-  </div>
-  <div class="menu-item">
-    Капучино – 180₽
-    <button onclick="addToCart(180, 'Капучино')">Добавить</button>
-  </div>
-  <div class="menu-item">
-    Латте – 200₽
-    <button onclick="addToCart(200, 'Латте')">Добавить</button>
-  </div>
-  <div class="menu-item">
-    Раф классик – 220₽
-    <button onclick="addToCart(220, 'Раф классик')">Добавить</button>
-  </div>
+  <h1>iCoffee Bar</h1>
+  <p class="subtitle">Насладитесь вкусом настоящего кофе</p>
 
+  <!-- Кофе -->
+  <div class="menu-category">☕ Горячие напитки</div>
+  <div class="menu-item">Эспрессо – 150₽ <button onclick="addToCart(150, 'Эспрессо')">Добавить</button></div>
+  <div class="menu-item">Капучино – 180₽ <button onclick="addToCart(180, 'Капучино')">Добавить</button></div>
+  <div class="menu-item">Латте – 200₽ <button onclick="addToCart(200, 'Латте')">Добавить</button></div>
+  <div class="menu-item">Американо – 160₽ <button onclick="addToCart(160, 'Американо')">Добавить</button></div>
+  <div class="menu-item">Раф классик – 220₽ <button onclick="addToCart(220, 'Раф классик')">Добавить</button></div>
+  <div class="menu-item">Мокачино – 230₽ <button onclick="addToCart(230, 'Мокачино')">Добавить</button></div>
+
+  <!-- Холодные напитки -->
+  <div class="menu-category">❄️ Холодные напитки</div>
+  <div class="menu-item">Айс Латте – 210₽ <button onclick="addToCart(210, 'Айс Латте')">Добавить</button></div>
+  <div class="menu-item">Фраппучино – 250₽ <button onclick="addToCart(250, 'Фраппучино')">Добавить</button></div>
+  <div class="menu-item">Холодный брой – 200₽ <button onclick="addToCart(200, 'Холодный брой')">Добавить</button></div>
+
+  <!-- Десерты -->
+  <div class="menu-category">🍰 Десерты</div>
+  <div class="menu-item">Чизкейк – 180₽ <button onclick="addToCart(180, 'Чизкейк')">Добавить</button></div>
+  <div class="menu-item">Пончик – 120₽ <button onclick="addToCart(120, 'Пончик')">Добавить</button></div>
+  <div class="menu-item">Круассан – 100₽ <button onclick="addToCart(100, 'Круассан')">Добавить</button></div>
+
+  <!-- Корзина -->
   <div class="cart">
-    <h3>Корзина</h3>
+    <h3>Ваш заказ</h3>
     <p class="total">Итого: <span id="total">0</span> ₽</p>
     <a href="#" id="whatsAppLink" class="order-button" target="_blank">💬 Отправить заказ в WhatsApp</a>
   </div>
@@ -112,7 +140,7 @@
     }
 
     function updateWhatsAppLink() {
-      const phone = '79886350007'; // ✅ Ваш номер в формате WhatsApp
+      const phone = '79886350007'; // Ваш номер
       const message = `Здравствуйте!%20Я%20хочу%20заказать:%20${orderItems.join(',%20')}.%20Итого:%20${total}₽`;
       const url = `https://wa.me/${phone}?text=${message}`;
       document.getElementById('whatsAppLink').href = url;
