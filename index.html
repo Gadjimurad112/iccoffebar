@@ -18,6 +18,11 @@
       font-size: 2.5em;
       margin-bottom: 10px;
     }
+    .subtitle {
+      color: #8b5a2b;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
     .menu-category {
       font-size: 1.6em;
       color: #5d4037;
@@ -28,6 +33,7 @@
     .menu-item {
       font-size: 1.4em;
       margin: 15px 0;
+      line-height: 1.4;
     }
     .quantity {
       display: inline-block;
@@ -88,16 +94,26 @@
       margin: 20px 0;
       line-height: 1.6;
     }
+    .desc {
+      font-size: 0.9em;
+      color: #777;
+      margin-left: 50px;
+    }
   </style>
 </head>
 <body>
 
   <h1>☕ iCoffee Bar</h1>
-  <p class="info">📍 Адрес: с. Ленина, ул. Р. Магомедова, 108<br>
-  🕐 Время работы: ежедневно с 8:00 до 00:00</p>
+  <p class="subtitle">Кофе и отдых — с душой</p>
 
-  <!-- Классика -->
-  <div class="menu-category">☕ Классика</div>
+  <p class="info">
+    📍 <strong>Адрес:</strong> с. Ленинаул, ул. Р. Магомедова, 108<br>
+    ⏰ <strong>Режим работы:</strong> 8:00–00:00, без выходных<br>
+    📞 <strong>Телефон:</strong> <a href="tel:+79886350007">+7 (988) 635-00-07</a>
+  </p>
+
+  <!-- Кофе -->
+  <div class="menu-category">🌿 Кофе</div>
   <div class="menu-item">
     Эспрессо – 150₽
     <button onclick="decrease('Эспрессо', 150)" class="btn">–</button>
@@ -111,31 +127,31 @@
     <button onclick="increase('Американо', 150)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Айс кофе – 250₽
-    <button onclick="decrease('Айс кофе', 250)" class="btn">–</button>
-    <span class="quantity" id="qty-Айс кофе">0</span>
-    <button onclick="increase('Айс кофе', 250)" class="btn">+</button>
+    Айс-кофе (S/M) – 250/300₽
+    <button onclick="decrease('Айс-кофе', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Айс-кофе">0</span>
+    <button onclick="increase('Айс-кофе', 250)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Айс латте – 200₽
-    <button onclick="decrease('Айс латте', 200)" class="btn">–</button>
-    <span class="quantity" id="qty-Айс латте">0</span>
-    <button onclick="increase('Айс латте', 200)" class="btn">+</button>
+    Айс-латте – 200₽
+    <button onclick="decrease('Айс-латте', 200)" class="btn">–</button>
+    <span class="quantity" id="qty-Айс-латте">0</span>
+    <button onclick="increase('Айс-латте', 200)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Бамбл – 250₽
-    <button onclick="decrease('Бамбл', 250)" class="btn">–</button>
+    Бамбл (мед, орехи, молоко) – 280₽
+    <button onclick="decrease('Бамбл', 280)" class="btn">–</button>
     <span class="quantity" id="qty-Бамбл">0</span>
-    <button onclick="increase('Бамбл', 250)" class="btn">+</button>
+    <button onclick="increase('Бамбл', 280)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Будильник – 200₽
+    Будильник (эспрессо + тоник) – 200₽
     <button onclick="decrease('Будильник', 200)" class="btn">–</button>
     <span class="quantity" id="qty-Будильник">0</span>
     <button onclick="increase('Будильник', 200)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Капучино – 150₽
+    Капучино (S/M) – 150/180₽
     <button onclick="decrease('Капучино', 150)" class="btn">–</button>
     <span class="quantity" id="qty-Капучино">0</span>
     <button onclick="increase('Капучино', 150)" class="btn">+</button>
@@ -165,98 +181,125 @@
     <button onclick="increase('Раф урбеч', 250)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Раф сироп – 240₽
-    <button onclick="decrease('Раф сироп', 240)" class="btn">–</button>
-    <span class="quantity" id="qty-Раф сироп">0</span>
-    <button onclick="increase('Раф сироп', 240)" class="btn">+</button>
+    Раф с сиропом – 250₽
+    <button onclick="decrease('Раф с сиропом', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Раф с сиропом">0</span>
+    <button onclick="increase('Раф с сиропом', 250)" class="btn">+</button>
+  </div>
+  <div class="menu-item">
+    Cold Brew – 250₽
+    <button onclick="decrease('Cold Brew', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Cold Brew">0</span>
+    <button onclick="increase('Cold Brew', 250)" class="btn">+</button>
+  </div>
+  <div class="menu-item">
+    Cold Brew (ушатайка) – 400₽
+    <button onclick="decrease('Cold Brew (ушатайка)', 400)" class="btn">–</button>
+    <span class="quantity" id="qty-Cold Brew (ушатайка)">0</span>
+    <button onclick="increase('Cold Brew (ушатайка)', 400)" class="btn">+</button>
   </div>
 
   <!-- Чай -->
   <div class="menu-category">🍵 Чай</div>
   <div class="menu-item">
-    Гринвейн – 170₽
-    <button onclick="decrease('Гринвейн', 170)" class="btn">–</button>
-    <span class="quantity" id="qty-Гринвейн">0</span>
-    <button onclick="increase('Гринвейн', 170)" class="btn">+</button>
+    Глинтвейн (S/M) – 170/240₽
+    <button onclick="decrease('Глинтвейн', 170)" class="btn">–</button>
+    <span class="quantity" id="qty-Глинтвейн">0</span>
+    <button onclick="increase('Глинтвейн', 170)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Цитрусовый – 170₽
-    <button onclick="decrease('Цитрусовый', 170)" class="btn">–</button>
-    <span class="quantity" id="qty-Цитрусовый">0</span>
-    <button onclick="increase('Цитрусовый', 170)" class="btn">+</button>
+    Цитрусовый чай (S/M) – 170/240₽
+    <button onclick="decrease('Цитрусовый чай', 170)" class="btn">–</button>
+    <span class="quantity" id="qty-Цитрусовый чай">0</span>
+    <button onclick="increase('Цитрусовый чай', 170)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Травяной – 200₽
-    <button onclick="decrease('Травяной', 200)" class="btn">–</button>
-    <span class="quantity" id="qty-Травяной">0</span>
-    <button onclick="increase('Травяной', 200)" class="btn">+</button>
+    Травяной чай – 200₽
+    <button onclick="decrease('Травяной чай', 200)" class="btn">–</button>
+    <span class="quantity" id="qty-Травяной чай">0</span>
+    <button onclick="increase('Травяной чай', 200)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Пуэр – 250₽
-    <button onclick="decrease('Пуэр', 250)" class="btn">–</button>
+    Пуэр (S/L) – 400/700₽
+    <button onclick="decrease('Пуэр', 400)" class="btn">–</button>
     <span class="quantity" id="qty-Пуэр">0</span>
-    <button onclick="increase('Пуэр', 250)" class="btn">+</button>
+    <button onclick="increase('Пуэр', 400)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Облепиховый – 170₽
-    <button onclick="decrease('Облепиховый', 170)" class="btn">–</button>
-    <span class="quantity" id="qty-Облепиховый">0</span>
-    <button onclick="increase('Облепиховый', 170)" class="btn">+</button>
+    Облепиховый чай (S/M) – 170/240₽
+    <button onclick="decrease('Облепиховый чай', 170)" class="btn">–</button>
+    <span class="quantity" id="qty-Облепиховый чай">0</span>
+    <button onclick="increase('Облепиховый чай', 170)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Чёрный – 200₽
-    <button onclick="decrease('Чёрный', 200)" class="btn">–</button>
-    <span class="quantity" id="qty-Чёрный">0</span>
-    <button onclick="increase('Чёрный', 200)" class="btn">+</button>
+    Черный чай – 200₽
+    <button onclick="decrease('Черный чай', 200)" class="btn">–</button>
+    <span class="quantity" id="qty-Черный чай">0</span>
+    <button onclick="increase('Черный чай', 200)" class="btn">+</button>
   </div>
 
-  <!-- Коктейли -->
-  <div class="menu-category">🍸 Коктейли</div>
+  <!-- Милкшейки -->
+  <div class="menu-category">🥛 Милкшейки (S/M)</div>
   <div class="menu-item">
-    Молочный – 200₽
-    <button onclick="decrease('Молочный', 200)" class="btn">–</button>
-    <span class="quantity" id="qty-Молочный">0</span>
-    <button onclick="increase('Молочный', 200)" class="btn">+</button>
+    Молочный – 250/280₽
+    <button onclick="decrease('Молочный милкшейк', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Молочный милкшейк">0</span>
+    <button onclick="increase('Молочный милкшейк', 250)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Банановый – 250₽
-    <button onclick="decrease('Банановый', 250)" class="btn">–</button>
-    <span class="quantity" id="qty-Банановый">0</span>
-    <button onclick="increase('Банановый', 250)" class="btn">+</button>
+    Банановый – 250/300₽
+    <button onclick="decrease('Банановый милкшейк', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Банановый милкшейк">0</span>
+    <button onclick="increase('Банановый милкшейк', 250)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Шоколадный – 250₽
-    <button onclick="decrease('Шоколадный', 250)" class="btn">–</button>
-    <span class="quantity" id="qty-Шоколадный">0</span>
-    <button onclick="increase('Шоколадный', 250)" class="btn">+</button>
+    Шоколадный – 250/300₽
+    <button onclick="decrease('Шоколадный милкшейк', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Шоколадный милкшейк">0</span>
+    <button onclick="increase('Шоколадный милкшейк', 250)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Клубничный – 250₽
-    <button onclick="decrease('Клубничный', 250)" class="btn">–</button>
-    <span class="quantity" id="qty-Клубничный">0</span>
-    <button onclick="increase('Клубничный', 250)" class="btn">+</button>
+    Клубничный – 250/300₽
+    <button onclick="decrease('Клубничный милкшейк', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Клубничный милкшейк">0</span>
+    <button onclick="increase('Клубничный милкшейк', 250)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Oreo – 250₽
-    <button onclick="decrease('Oreo', 250)" class="btn">–</button>
-    <span class="quantity" id="qty-Oreo">0</span>
-    <button onclick="increase('Oreo', 250)" class="btn">+</button>
+    Oreo – 250/300₽
+    <button onclick="decrease('Oreo милкшейк', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Oreo милкшейк">0</span>
+    <button onclick="increase('Oreo милкшейк', 250)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Финиковый – 250₽
-    <button onclick="decrease('Финиковый', 250)" class="btn">–</button>
-    <span class="quantity" id="qty-Финиковый">0</span>
-    <button onclick="increase('Финиковый', 250)" class="btn">+</button>
+    Финиковый – 250/300₽
+    <button onclick="decrease('Финиковый милкшейк', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Финиковый милкшейк">0</span>
+    <button onclick="increase('Финиковый милкшейк', 250)" class="btn">+</button>
+  </div>
+
+  <!-- Смузи -->
+  <div class="menu-category">🥤 Смузи (S/M)</div>
+  <div class="menu-item">
+    Классический – 250/300₽
+    <button onclick="decrease('Классический смузи', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Классический смузи">0</span>
+    <button onclick="increase('Классический смузи', 250)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Смузи – 250₽
-    <button onclick="decrease('Смузи', 250)" class="btn">–</button>
-    <span class="quantity" id="qty-Смузи">0</span>
-    <button onclick="increase('Смузи', 250)" class="btn">+</button>
+    Черничный – 250/300₽
+    <button onclick="decrease('Черничный смузи', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Черничный смузи">0</span>
+    <button onclick="increase('Черничный смузи', 250)" class="btn">+</button>
+  </div>
+  <div class="menu-item">
+    Малиновый – 250/300₽
+    <button onclick="decrease('Малиновый смузи', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Малиновый смузи">0</span>
+    <button onclick="increase('Малиновый смузи', 250)" class="btn">+</button>
   </div>
 
   <!-- Лимонады -->
-  <div class="menu-category">🥤 Лимонады</div>
+  <div class="menu-category">🍹 Лимонады и коктейли</div>
   <div class="menu-item">
     Мохито – 200₽
     <button onclick="decrease('Мохито', 200)" class="btn">–</button>
@@ -264,10 +307,10 @@
     <button onclick="increase('Мохито', 200)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Мохито клубника – 200₽
-    <button onclick="decrease('Мохито клубника', 200)" class="btn">–</button>
-    <span class="quantity" id="qty-Мохито клубника">0</span>
-    <button onclick="increase('Мохито клубника', 200)" class="btn">+</button>
+    Клубничный мохито – 200₽
+    <button onclick="decrease('Клубничный мохито', 200)" class="btn">–</button>
+    <span class="quantity" id="qty-Клубничный мохито">0</span>
+    <button onclick="increase('Клубничный мохито', 200)" class="btn">+</button>
   </div>
   <div class="menu-item">
     Голубая лагуна – 200₽
@@ -281,8 +324,11 @@
     <span class="quantity" id="qty-Экзотика">0</span>
     <button onclick="increase('Экзотика', 250)" class="btn">+</button>
   </div>
+
+  <!-- Тонизирующие -->
+  <div class="menu-category">⚡ Тонизирующие напитки</div>
   <div class="menu-item">
-    Разбудильник – 250₽
+    Разбудильник (энергетик + сок) – 250₽
     <button onclick="decrease('Разбудильник', 250)" class="btn">–</button>
     <span class="quantity" id="qty-Разбудильник">0</span>
     <button onclick="increase('Разбудильник', 250)" class="btn">+</button>
@@ -294,25 +340,37 @@
     <button onclick="increase('Шоты', 250)" class="btn">+</button>
   </div>
 
-  <!-- Фреши -->
-  <div class="menu-category">🍹 Фреши</div>
+  <!-- Соки -->
+  <div class="menu-category">🍊 Свежевыжатые соки (S/M)</div>
   <div class="menu-item">
-    Апельсиновый – 250₽
-    <button onclick="decrease('Апельсиновый', 250)" class="btn">–</button>
-    <span class="quantity" id="qty-Апельсиновый">0</span>
-    <button onclick="increase('Апельсиновый', 250)" class="btn">+</button>
+    Апельсиновый – 250/280₽
+    <button onclick="decrease('Апельсиновый сок', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Апельсиновый сок">0</span>
+    <button onclick="increase('Апельсиновый сок', 250)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Гранатовый – 250₽
-    <button onclick="decrease('Гранатовый', 250)" class="btn">–</button>
-    <span class="quantity" id="qty-Гранатовый">0</span>
-    <button onclick="increase('Гранатовый', 250)" class="btn">+</button>
+    Гранатовый – 250/280₽
+    <button onclick="decrease('Гранатовый сок', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Гранатовый сок">0</span>
+    <button onclick="increase('Гранатовый сок', 250)" class="btn">+</button>
   </div>
   <div class="menu-item">
-    Микс – 250₽
-    <button onclick="decrease('Микс', 250)" class="btn">–</button>
-    <span class="quantity" id="qty-Микс">0</span>
-    <button onclick="increase('Микс', 250)" class="btn">+</button>
+    Микс – 250/280₽
+    <button onclick="decrease('Микс сок', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Микс сок">0</span>
+    <button onclick="increase('Микс сок', 250)" class="btn">+</button>
+  </div>
+  <div class="menu-item">
+    Щавель – 250₽
+    <button onclick="decrease('Щавель', 250)" class="btn">–</button>
+    <span class="quantity" id="qty-Щавель">0</span>
+    <button onclick="increase('Щавель', 250)" class="btn">+</button>
+  </div>
+  <div class="menu-item">
+    Щавель + апельсин – 300₽
+    <button onclick="decrease('Щавель + апельсин', 300)" class="btn">–</button>
+    <span class="quantity" id="qty-Щавель + апельсин">0</span>
+    <button onclick="increase('Щавель + апельсин', 300)" class="btn">+</button>
   </div>
 
   <!-- Корзина -->
@@ -326,13 +384,17 @@
   <script>
     let total = 0;
     const quantities = {
-      'Эспрессо': 0, 'Американо': 0, 'Айс кофе': 0, 'Айс латте': 0, 'Бамбл': 0,
+      'Эспрессо': 0, 'Американо': 0, 'Айс-кофе': 0, 'Айс-латте': 0, 'Бамбл': 0,
       'Будильник': 0, 'Капучино': 0, 'Флэт-Уайт': 0, 'Латте': 0, 'Раф классик': 0,
-      'Раф урбеч': 0, 'Раф сироп': 0, 'Гринвейн': 0, 'Цитрусовый': 0, 'Травяной': 0,
-      'Пуэр': 0, 'Облепиховый': 0, 'Чёрный': 0, 'Молочный': 0, 'Банановый': 0,
-      'Шоколадный': 0, 'Клубничный': 0, 'Oreo': 0, 'Финиковый': 0, 'Смузи': 0,
-      'Мохито': 0, 'Мохито клубника': 0, 'Голубая лагуна': 0, 'Экзотика': 0,
-      'Разбудильник': 0, 'Шоты': 0, 'Апельсиновый': 0, 'Гранатовый': 0, 'Микс': 0
+      'Раф урбеч': 0, 'Раф с сиропом': 0, 'Cold Brew': 0, 'Cold Brew (ушатайка)': 0,
+      'Глинтвейн': 0, 'Цитрусовый чай': 0, 'Травяной чай': 0, 'Пуэр': 0,
+      'Облепиховый чай': 0, 'Черный чай': 0, 'Молочный милкшейк': 0,
+      'Банановый милкшейк': 0, 'Шоколадный милкшейк': 0, 'Клубничный милкшейк': 0,
+      'Oreo милкшейк': 0, 'Финиковый милкшейк': 0, 'Классический смузи': 0,
+      'Черничный смузи': 0, 'Малиновый смузи': 0, 'Мохито': 0, 'Клубничный мохито': 0,
+      'Голубая лагуна': 0, 'Экзотика': 0, 'Разбудильник': 0, 'Шоты': 0,
+      'Апельсиновый сок': 0, 'Гранатовый сок': 0, 'Микс сок': 0, 'Щавель': 0,
+      'Щавель + апельсин': 0
     };
 
     function increase(name, price) {
@@ -352,12 +414,10 @@
     function updateDisplay() {
       document.getElementById('total').textContent = total;
 
-      // Обновляем количество
       for (let item in quantities) {
         document.getElementById(`qty-${item}`).textContent = quantities[item];
       }
 
-      // Обновляем список заказа
       const items = [];
       for (let item in quantities) {
         if (quantities[item] > 0) {
@@ -369,14 +429,12 @@
         ? items.map(item => `• ${item}`).join('<br>') 
         : 'Ничего не добавлено';
 
-      // Обновляем WhatsApp-ссылку
       const phone = '79886350007';
       const orderText = items.join(', ');
       const message = `Здравствуйте!%20Я%20хочу%20заказать:%20${orderText}.%20Итого:%20${total}₽`;
       document.getElementById('whatsAppLink').href = `https://wa.me/${phone}?text=${message}`;
     }
 
-    // Инициализация
     updateDisplay();
   </script>
 
